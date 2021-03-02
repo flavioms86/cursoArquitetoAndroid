@@ -22,4 +22,6 @@
     <string name="menu_drawer_minhas_compras">Minhas Compras</string>
     <string name="menu_drawer_meu_carrinho">Meu Carrinho</string>
     <string name="menu_drawer_sair">Sair</string>
+    <string name="toggle_open">Open</string>
+    <string name="toggle_close">Close</string>
 </resources>

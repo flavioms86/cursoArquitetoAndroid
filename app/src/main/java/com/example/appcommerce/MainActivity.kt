@@ -11,6 +11,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.appcommerce.adapter.ProductCategoryAdapter
+import com.example.appcommerce.model.ProductCategory
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -20,6 +24,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var navigationView: NavigationView
     lateinit var textTitle: TextView
     lateinit var textLogin: TextView
+    lateinit var recyclerCategory: RecyclerView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +61,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent (this, UserLoginActivity::class.java)
             startActivity(intent)
         }
+
+        recyclerCategory = findViewById(R.id.rv_main_product_category)
+
+        val arrayCategory = arrayListOf<ProductCategory>(ProductCategory("1", "Camisetas"),
+            ProductCategory("2", "Calças"),
+            ProductCategory("3", "Meias"),
+            ProductCategory("4", "Sapatos"))
+
+        val adapterCategory = ProductCategoryAdapter(arrayCategory, this)
+
+        recyclerCategory.adapter = adapterCategory
+        recyclerCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+
     }
 
     override fun onBackPressed() {

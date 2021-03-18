@@ -50,6 +50,7 @@
     <string name="user_profile_cep">CEP</string>
     <string name="user_profile_atualizar">Atualizar</string>
     <string name="user_profile_title">Perfil</string>
+    <string name="product_category_title">Categorias</string>
     <string-array name="states">
         <item>Acre (AC)</item>
         <item>Alagoas (AL)</item>

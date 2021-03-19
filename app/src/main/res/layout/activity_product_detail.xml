@@ -37,9 +37,10 @@
                 android:adjustViewBounds="true"/>
 
             <TextView
+                android:id="@+id/tv_product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="R$ 89,90"
+                android:text="R$ 00,00"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"/>
@@ -47,7 +48,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cor"
+                android:text="@string/product_detail_color"
                 android:textAppearance="@android:style/TextAppearance.Medium"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"/>
@@ -60,55 +61,29 @@
                 android:layout_height="wrap_content"
                 app:singleSelection="true">
 
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Branco"
-                    android:checkable="true"/>
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Preto"
-                    android:checkable="true"/>
-
             </com.google.android.material.chip.ChipGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tamanho"
+                android:text="@string/product_detail_size"
                 android:textAppearance="@android:style/TextAppearance.Medium"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"/>
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group_tamanho"
+                android:id="@+id/chip_group_size"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:singleSelection="true">
 
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="P"
-                    android:checkable="true"/>
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="M"
-                    android:checkable="true"/>
-
             </com.google.android.material.chip.ChipGroup>
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:background="@android:color/holo_green_dark"
                 android:text="@string/product_detail_button_comprar"
                 android:layout_marginLeft="8dp"
@@ -125,9 +100,10 @@
                 android:layout_marginTop="8dp"/>
 
             <TextView
+                android:id="@+id/tv_product_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descrição do produto aqui Descrição do produto aqui Descrição do produto aqui"
+                android:text="Placeholder"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginBottom="8dp"

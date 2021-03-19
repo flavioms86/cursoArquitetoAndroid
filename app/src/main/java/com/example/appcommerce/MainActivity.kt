@@ -13,8 +13,12 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appcommerce.adapter.ProductAdapter
 import com.example.appcommerce.adapter.ProductCategoryAdapter
+import com.example.appcommerce.model.Product
 import com.example.appcommerce.model.ProductCategory
+import com.example.appcommerce.model.ProductColor
+import com.example.appcommerce.model.ProductSize
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +29,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var textTitle: TextView
     lateinit var textLogin: TextView
     lateinit var recyclerCategory: RecyclerView
+    lateinit var recyclerProduct: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,13 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-
-        val productItem: LinearLayout = findViewById(R.id.ll_product_item)
-        productItem.setOnClickListener{
-            val intent: Intent = Intent(this, ProductDetailActivity::class.java)
-            startActivity(intent)
-        }
-
         textLogin = navigationView.getHeaderView(0).findViewById(R.id.header_profile_name)
         textLogin.setOnClickListener{
             val intent = Intent (this, UserLoginActivity::class.java)
@@ -74,7 +72,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         recyclerCategory.adapter = adapterCategory
         recyclerCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
+        recyclerProduct = findViewById(R.id.rv_main_product)
 
+        val adapterProduct = ProductAdapter(fillRvProduct(), this)
+
+        recyclerProduct.adapter = adapterProduct
+        recyclerProduct.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    fun fillRvProduct() : List<Product>{
+        val product1: Product = Product(
+            "1",
+            "Camiseta 89",
+            ProductCategory("id", "Camiseta"),
+            "Camiseta leve exercícios",
+            19.90,
+            arrayListOf(ProductColor("1", "Branco", "#ffffff"), ProductColor("2", "Preto", "#000000")),
+            arrayListOf(ProductSize("1", "P"), ProductSize("1", "M")),
+            emptyList())
+
+        val product2: Product = Product(
+            "1",
+            "Calça Jeans",
+            ProductCategory("id", "Calças"),
+            "Calça Jeans Rasgada",
+            39.90,
+            arrayListOf(ProductColor("1", "Branco", "#ffffff"), ProductColor("2", "Preto", "#000000")),
+            arrayListOf(ProductSize("1", "M"), ProductSize("1", "GG")),
+            emptyList())
+
+        return arrayListOf(product1, product2)
     }
 
     override fun onBackPressed() {

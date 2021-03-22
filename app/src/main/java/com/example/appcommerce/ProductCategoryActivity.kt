@@ -10,7 +10,6 @@ import com.example.appcommerce.model.ProductCategory
 
 class ProductCategoryActivity : AppCompatActivity() {
 
-    lateinit var recyclerView: RecyclerView
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
     lateinit var textTitle: TextView
 
@@ -26,20 +25,6 @@ class ProductCategoryActivity : AppCompatActivity() {
 
         textTitle = findViewById(R.id.toolbar_title)
         textTitle.text = getString(R.string.product_category_title)
-
-        recyclerView = findViewById(R.id.rv_product_category)
-
-        val arrayCategory = arrayListOf<ProductCategory>(
-                ProductCategory("1", "Camisetas"),
-                ProductCategory("2", "Calças"),
-                ProductCategory("3", "Meias"),
-                ProductCategory("4", "Sapatos")
-        )
-
-        val adapterCategory = ProductCategoryAdapter(arrayCategory, this)
-
-        recyclerView.adapter = adapterCategory
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
 
     }
 

@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appcommerce.ProductCategoryFragment
 import com.example.appcommerce.R
 import com.example.appcommerce.model.ProductCategory
 
@@ -16,6 +18,7 @@ class ProductCategoryAdapter(val list: List<ProductCategory>, val context: Conte
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val icon: ImageView = itemView.findViewById(R.id.iv_category_icon)
         val title: TextView = itemView.findViewById(R.id.tv_category_title)
+        val cardView: CardView = itemView.findViewById(R.id.cv_product_category)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,6 +29,9 @@ class ProductCategoryAdapter(val list: List<ProductCategory>, val context: Conte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category: ProductCategory = list[position]
         holder.title.text = category.title
+        holder.cardView.setOnClickListener {
+            (context as ProductCategoryFragment.Callback).itemSelected(category)
+        }
     }
 
     override fun getItemCount(): Int = list.size

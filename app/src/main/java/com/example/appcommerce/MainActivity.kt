@@ -22,7 +22,9 @@ import com.example.appcommerce.model.ProductColor
 import com.example.appcommerce.model.ProductSize
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(),
+    NavigationView.OnNavigationItemSelectedListener,
+    ProductCategoryFragment.Callback {
 
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
@@ -64,8 +66,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         recyclerCategory = findViewById(R.id.rv_main_product_category)
 
-        val arrayCategory = arrayListOf<ProductCategory>(ProductCategory("1", "Camisetas"),
-            ProductCategory("2", "Calças"),
+        val arrayCategory = arrayListOf<ProductCategory>(
+            ProductCategory("1", "Camisetas"),
+            ProductCategory("2", "Calças", fillRvProduct()),
             ProductCategory("3", "Meias"),
             ProductCategory("4", "Sapatos"))
 
@@ -135,5 +138,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun itemSelected(category: ProductCategory) {
+        val intent = Intent (this, ProductActivity::class.java)
+        intent.putExtra("CATEGORY", category)
+        startActivity(intent)
     }
 }

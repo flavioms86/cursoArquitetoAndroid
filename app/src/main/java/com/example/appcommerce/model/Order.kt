@@ -2,7 +2,7 @@ package com.example.appcommerce.model
 
 import java.io.Serializable
 
-data class Oder(
+data class Order(
     val id: String,
     val time: Long,
     val status: String,

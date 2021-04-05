@@ -160,8 +160,13 @@ class MainActivity : AppCompatActivity(),
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
             }
-            R.id.nav_orders -> Toast.makeText(this, "Compras", Toast.LENGTH_LONG).show()
-            //R.id.nav_cart -> Toast.makeText(this, "Carrinho", Toast.LENGTH_LONG).show()
+            //R.id.nav_orders -> Toast.makeText(this, "Compras", Toast.LENGTH_LONG).show()
+
+            R.id.nav_orders -> {
+                val intent = Intent(this, OrderActivity::class.java)
+                startActivity(intent)
+            }
+
             R.id.nav_cart -> {
                 val intent = Intent(this, CartActivity::class.java)
                 startActivity(intent)
